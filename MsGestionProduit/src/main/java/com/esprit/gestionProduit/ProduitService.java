@@ -48,5 +48,22 @@ public class ProduitService {
 		return stockRepository.save(stock);
 		
 	}
+	
+	public Produit updateProduit(int id,Produit newProduit) {
+		if(produitRepository.findById(id).isPresent()) {
+			Produit existingProduit = produitRepository.findById(id).get();
+			if(newProduit.getLibelle() != null) {
+				existingProduit.setLibelle(newProduit.getLibelle());
+			}
+			if(newProduit.getPrix() != 0) {
+				existingProduit.setPrix(newProduit.getPrix());
+			}
+			
+			
+			return produitRepository.save(existingProduit);
+		}else {
+			return null;
+		}
+	}
 
 }

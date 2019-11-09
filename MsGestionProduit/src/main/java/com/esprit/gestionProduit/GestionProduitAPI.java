@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -61,6 +62,11 @@ public class GestionProduitAPI {
 		return produitService.addProduitToStock(idP, idS);
 	}
 	
+	
+	@PutMapping(value="/{id}" ,produces = MediaType.APPLICATION_JSON_VALUE)
+	public Produit updateProduit(@PathVariable(value="id") int id, @RequestBody Produit produit) {
+		return produitService.updateProduit(id, produit);
+	}
 	
 	
 	
