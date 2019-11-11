@@ -1,0 +1,4 @@
+FROM java:8
+EXPOSE 8282
+ADD /target/msGestionEntrepot-0.0.1-SNAPSHOT.jar docker-gestion-entrepot.jar
+ENTRYPOINT ["java","-jar","docker-gestion-entrepot.jar"]

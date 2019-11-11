@@ -1,0 +1,9 @@
+com\esprit\msGestionEntrepot\EntrepotService.class
+com\esprit\msGestionEntrepot\Entrepot.class
+com\esprit\msGestionEntrepot\EquipementAPI.class
+com\esprit\msGestionEntrepot\EntrepotRepository.class
+com\esprit\msGestionEntrepot\EquipementRepository.class
+com\esprit\msGestionEntrepot\Equipement.class
+com\esprit\msGestionEntrepot\MsGestionEntrepotApplication.class
+com\esprit\msGestionEntrepot\EquipementService.class
+com\esprit\msGestionEntrepot\EntrepotAPI.class
