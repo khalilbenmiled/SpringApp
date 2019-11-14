@@ -1,10 +1,15 @@
 package com.esprit.gestionProduit;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +18,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 
 
@@ -68,6 +74,17 @@ public class GestionProduitAPI {
 	@PutMapping(value="/{id}" ,produces = MediaType.APPLICATION_JSON_VALUE)
 	public Produit updateProduit(@PathVariable(value="id") int id, @RequestBody Produit produit) {
 		return produitService.updateProduit(id, produit);
+	}
+	
+	@GetMapping(value="categories" ,produces = MediaType.APPLICATION_JSON_VALUE)
+	public String getAllCategories() {
+		final String uri = "http://192.168.99.100:3000/api";
+	     
+	     
+	    RestTemplate restTemplate = new RestTemplate();
+	    String result = restTemplate.getForObject(uri, String.class);
+	     
+	    return result;
 	}
 	
 	
